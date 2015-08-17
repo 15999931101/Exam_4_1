@@ -38,10 +38,10 @@
   	<servlet-class>com.hand.servlet.deleteServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>dd</servlet-name>
-  	<display-name>dd</display-name>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<display-name>LogoutServlet</display-name>
   	<description></description>
-  	<servlet-class>com.hand.servlet.dd</servlet-class>
+  	<servlet-class>com.hand.servlet.LogoutServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
@@ -60,7 +60,7 @@
   	<url-pattern>/deleteServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>dd</servlet-name>
-  	<url-pattern>/dd</url-pattern>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
 </web-app>

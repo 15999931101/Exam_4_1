@@ -15,19 +15,17 @@ import com.hand.dao.Imp.FileDaoImp;
 import com.hand.entity.Film;
 
 /**
- * Servlet implementation class updateServlet
+ * Servlet implementation class deleteServlet
  */
-public class updateServlet extends HttpServlet {
+public class deleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-	
+       
 	private FilmDao filmDao = new FileDaoImp();
-    public updateServlet() {
+    public deleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -35,62 +33,21 @@ public class updateServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("========doPost执行========");
-		System.out.println();
-		String language_id=null;
-		int  film_id;
-		
-		String title =  req.getParameter("title");
-		String description =  req.getParameter("description");
-		String language =  req.getParameter("language");
-		film_id =Integer.parseInt(req.getParameter("film_id"));
-		System.out.println(title+film_id);
-		if(language.equals("English") ){
-			language_id ="1";
-		}
-		if(language.equals("Italian")){
-			language_id ="2";
-		}
-		if(language.equals("Japanese") ){
-			language_id ="3";
-		}
-		if(language.equals("Mandarin")){
-			language_id ="4";
-		}
-		if(language.equals("French") ){
-			language_id ="5";
-		}
-		if(language.equals("German") ){
-			language_id ="6";
-		}
-		
-		
-		System.out.println(title+"\t"+description+"\t"+language);
-		System.out.println(language_id);
-		Film film = new Film();
-		
-		film.setTitle(title);
-		film.setDescription(description);
-       
-        film.setLanguage_id(language_id);
-        film.setFilm_id(film_id);
-        
-		
 	
+		int  film_id;		
+		film_id =Integer.parseInt(req.getParameter("film_id"));
+		Film film = new  Film();
+		film.setFilm_id(film_id);
 		Connection conn =getConnection();
 		try {
-   
-			
-			filmDao.update(conn, film_id, film);
-
-			
+			filmDao.delete(conn, film);
 		} catch (SQLException e) {
-		
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		req.getRequestDispatcher("index.jsp").forward(req, resp);
-	}
+		resp.sendRedirect("index.jsp");
 	
+	}
 	
 	public static Connection getConnection(){
 		Connection conn =null;

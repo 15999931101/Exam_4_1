@@ -55,12 +55,13 @@ public class FileDaoImp implements FilmDao {
 //		String replacement_cost="20.00";
 //		String last_update="2015-8-16 ";
 		
-		String insertSql = "update user set title=?,description=?,language_id=? where id = ?";
+		String insertSql = "update film set title=?,description=?,language_id=? where film_id = ?";
 		PreparedStatement ps = conn.prepareStatement(insertSql);	
 		
 		ps.setString(1, film.getTitle());
 		ps.setString(2, film.getDescription());
-		ps.setString(3, film.getLanguage());	
+		ps.setString(3, film.getLanguage_id());	
+		ps.setLong(4, film.getFilm_id());	
 
 			
 		ps.execute();
@@ -69,7 +70,13 @@ public class FileDaoImp implements FilmDao {
 	}
 
 	public void delete(Connection conn, Film film) throws SQLException {
-		// TODO Auto-generated method stub
+		String insertSql = "delete from film where film_id=?";
+		PreparedStatement ps = conn.prepareStatement(insertSql);	
+		
+		ps.setLong(1, film.getFilm_id());			
+		ps.execute();
+		System.out.println("删除成功");
+		
 		
 	}
 }

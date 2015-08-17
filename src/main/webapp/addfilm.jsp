@@ -19,7 +19,7 @@
 Connection conn;
 
 Class.forName("com.mysql.jdbc.Driver");//用来注册mysql的jdbc程序
-conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","root","lin051477515");//连接数据库
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","root","");//连接数据库
 String sql="select name from language";
 PreparedStatement ps1 = conn.prepareCall(sql);	
 ResultSet rs =ps1.executeQuery(sql);//执行sql语句

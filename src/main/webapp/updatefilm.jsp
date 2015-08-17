@@ -5,7 +5,7 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,26 +16,37 @@
 		Connection conn;
 
 		Class.forName("com.mysql.jdbc.Driver");//用来注册mysql的jdbc程序
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila", "root", "lin051477515");//连接数据库
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila", "root", "");//连接数据库
 		String sql = "SELECT f.film_id,f.title,f.description,l.name  FROM  film f,LANGUAGE l  WHERE f.language_id=l.language_id";
 		PreparedStatement ps1 = conn.prepareCall(sql);
 		ResultSet rs = ps1.executeQuery(sql);//执行sql语句
 	%>
 	<table>
-	<% 
-	out.println("<tr><td>"+"\t"+"film_id"+"</td><td>" +"film"+"</td><td>"+"description"+"</td><td>"+"language"
-            +"</td><td>");
+	    <tr>
+			<td colspan="4" align="center" bgcolor="#E7899"><a href="index.jsp">返回主页面</a></td>
+		</tr>
+		<tr>
+			<td>film_id</td>
+			<td>film</td>
+			<td>description</td>
+			<td>language</td>
+		</tr>
+	
+		<% 
 	while(rs.next()){
-        out.println("<tr><td>"+rs.getString(1)+"</td><td>" +rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"
-                +rs.getString(4)+"</td><td>"
-        		
-                +"<a href ='modity.jsp?film_id=<%rs.getString(0)%>'>
-                 更新</a>");
-               
-      
-    }
-
-	%>
+				%>
+		<tr>
+			<td><%=rs.getLong(1) %></td>
+			<td><%=rs.getString(2) %></td>
+			<td><%=rs.getString(3) %></td>
+			<td><%=rs.getString(4) %></td>
+			<td><a href ="modify.jsp?film_id=<%=rs.getLong(1)%>&title=<%=rs.getString(2)%>&description=<%=rs.getString(3) %>
+			&language=<%=rs.getString(4) %> ">修改</a></td>
+		</tr>
+		
+		<% }%>
+		
+     
 	</table>
 
 </body>

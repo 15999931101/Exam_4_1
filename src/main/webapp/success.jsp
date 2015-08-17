@@ -10,6 +10,6 @@
 您提交的信息为：<br/>
 用户名：<%=request.getParameter("uname") %><br/>
 密    码：<%=request.getParameter("pwd") %><br/>
-<a href = "login.jsp">返回登录页面</a>
+<a href = "index.jsp">返回登录页面</a>
 </body>
 </html>

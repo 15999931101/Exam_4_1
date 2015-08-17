@@ -2,7 +2,7 @@ package com.hand.entity;
 
 public class Film {
 
-	private String film_id;
+	private int film_id;
 	private String title;
 	private String description;
 	private String language;
@@ -17,10 +17,10 @@ public class Film {
 	}
 	
 
-	public String getFilm_id() {
+	public int getFilm_id() {
 		return film_id;
 	}
-	public void setFilm_id(String film_id) {
+	public void setFilm_id(int film_id) {
 		this.film_id = film_id;
 	}
 	public String getTitle() {

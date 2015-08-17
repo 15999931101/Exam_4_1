@@ -18,23 +18,31 @@
 <body>
 
 
-<form action="<%=request.getContextPath()%>/FilmServlet" method="post">
+<form action="<%=request.getContextPath()%>/updateServlet" method="post">
 		<table border="1" cellpadding="5" cellspacing="0" bgcolor="silver"
-			align="center">
+			align="center" width="500">
+			<tr>
+			<td colspan="4" align="center" bgcolor="#E7899"><a href="index.jsp">返回主页面</a></td>
+		   </tr>
+		   
 			<tr>
 				<td colspan="2" align="center" bgcolor="#E7899">更新电影表记录</td>
 			</tr>
+			<tr style="">
+				<td>film_id</td>
+				<td width="300"><input type="text" name="film_id" value="<%=request.getParameter("film_id") %>"></td>
+			</tr>
 			<tr>
 				<td>title</td>
-				<td><input type="text" name="title" value="<%=request.getParameter("title") %>"></td>
+				<td width="300"><input type="text" name="title" value="<%=request.getParameter("title") %>"></td>
 			</tr>
 			<tr>
 				<td>description</td>
-				<td><input type="text" name="description" value="<%=request.getParameter("description") %>"></td>
+				<td width="300"><input type="text" name="description" value="<%=request.getParameter("description") %>"></td>
 			</tr>
-			<tr>
+			<tr >
 				<td>language</td>
-				<td><input type="text" name="language" value="<%=request.getParameter("language") %>"></td>
+				<td width="300"><input type="text" name="language" value="<%=request.getParameter("language") %>"></td>
 				
 			</tr>
 			<tr>

@@ -87,7 +87,7 @@ public class FilmServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
+		req.getRequestDispatcher("index.jsp").forward(req, resp);
 		
 	}
 	
@@ -95,7 +95,7 @@ public class FilmServlet extends HttpServlet {
 		Connection conn =null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");//用来注册mysql的jdbc程序
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","root","lin051477515");//连接数据库
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","root","");//连接数据库
 
 		} catch (Exception e) {
 			e.printStackTrace();

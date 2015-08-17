@@ -14,7 +14,22 @@ body{
 </style>
 
 </head>
-<body>       
+<body>  
+<center>
+	
+	<%
+	
+		Object obj = request.getAttribute("msg");
+		if(obj != null){
+			out.println(obj.toString());
+		}else{
+			out.println("无");
+		}
+
+	%>
+	
+	</center>
+	<br/>     
 <form action="<%=request.getContextPath()%>/LoginServlet" method="post" name="loginForm" >
 <table border="1" cellpadding="5" cellspacing="0" bgcolor="silver" align="center">
 <tr>

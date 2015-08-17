@@ -7,7 +7,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-主页面！<br/>
-<a href ="login.jsp">登录</a><br/>
+
+主页面！<br/><br/>
+<%
+		String flag = "";
+		Object obj = session.getAttribute("flag");
+		if (obj != null) {
+			flag = obj.toString();
+		}
+		if (flag.equals("login_success")) {
+	%>
+	<a href="<%=request.getContextPath()%>/LogoutServlet">退出</a><br/><br/>
+	
+    
+	<%
+		} else {
+	%>
+	<a href="<%=request.getContextPath()%>/login.jsp">登录</a><br/><br/>
+	<%
+		}
+	%>
+
+<a href ="showfilm.jsp">显示File记录</a><br/><br/>
+<a href ="addfilm.jsp">添加File记录</a><br/><br/>
+<a href ="updatefilm.jsp">更新File记录</a><br/><br/>
+<a href ="deletefilm.jsp">删除File记录</a><br/><br/>
 </body>
 </html>
